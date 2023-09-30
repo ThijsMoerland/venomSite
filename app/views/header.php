@@ -14,3 +14,6 @@
     <li><a href="/fang" class="p-3 text-white">Fang Types</a></li>
   </ul>
 </nav>
+
+<div class="container">
+  
