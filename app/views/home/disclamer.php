@@ -3,9 +3,6 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Disclamer</h5>
-                <form action="/home/okDisclamer" method="POST" class="modal-body">
-                    <button type="submit" class="close">&times;</button>
-                </form>
             </div>
             <div class="modal-body">
 				<p>This is created just as a fun project for myself because i love coding and venomous reptiles</p>
