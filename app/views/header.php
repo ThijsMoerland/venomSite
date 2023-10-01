@@ -12,6 +12,7 @@
   <ul class="list-unstyled d-flex mb-0">
     <li><a href="/home" class="p-3 text-white">Venom Site</a></li>
     <li><a href="/fang" class="p-3 text-white">Fang Types</a></li>
+    <li><a href="/venom" class="p-3 text-white">Venom Types</a></li>
   </ul>
 </nav>
 
