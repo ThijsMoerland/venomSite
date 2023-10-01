@@ -16,6 +16,17 @@ class AdminRepository extends Repository{
             return $result;
         }catch (PDOException $e)
         {
+            // echo $e;
+        }
+    }
+
+    public function deleteFangType($id){
+        try{
+            $stmt = $this->connection->prepare("DELETE FROM `fangTypes` WHERE id = :id");
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+        }catch (PDOException $e)
+        {
             echo $e;
         }
     }

@@ -25,20 +25,10 @@
               </a>
             </li>
             <li class="nav-item">
-              <?php 
-              if(isset( $_SESSION['admin'])) { ?>
-                <a class="nav-link text-secondary" href="/admin/fang">Fang Types (admin)</a>
-              <?php } else { ?>
                 <a class="nav-link text-secondary" href="/fang">Fang Types</a>
-              <?php } ?>
             </li>
             <li class="nav-item">
-              <?php 
-              if(isset( $_SESSION['admin'])) { ?>
-                <a class="nav-link text-secondary" href="/admin/venom">Venom types (admin)</a>
-              <?php } else { ?>
                 <a class="nav-link text-secondary" href="/venom">Venom types</a>
-              <?php } ?>
             </li>
             <li class="nav-item">
               <?php 

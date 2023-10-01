@@ -39,5 +39,9 @@ class AdminService{
     public function logout(){
         unset($_SESSION['admin']);
     }
+
+    public function deleteFangType($id){
+        $this->adminRepository->deleteFangType($id);
+    }
 }
 ?>

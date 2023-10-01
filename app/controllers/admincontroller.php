@@ -1,10 +1,12 @@
 <?php
 
 require_once __DIR__ . '/../services/adminservice.php';
-
+require_once __DIR__ . '/../services/fangservice.php';
 class AdminController{
+    private $fangService;
     private $adminService;
     function __construct(){
+        $this->fangService = new FangService();
         $this->adminService = new AdminService();
     }
     public function index(){
@@ -37,6 +39,16 @@ class AdminController{
     public function logout(){
         $this->adminService->logout();
         echo "<script>window.location.replace('/');</script>";
+    }
+
+    public function editFangTypesView(){
+        $fangTypes = $this->fangService->getAllFangTypes();
+        require __DIR__ . '/../views/admin/editFangTypes/allFangTypes.php';
+    }
+
+    public function deleteFangTypes(){
+        $id = htmlspecialchars($_POST['id']);
+        $this->adminService->deleteFangType($id);
     }
 }
 
