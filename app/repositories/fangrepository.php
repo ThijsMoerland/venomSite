@@ -37,7 +37,7 @@ class FangRepository extends Repository {
             return $result;
         }catch (PDOException $e)
         {
-            echo $e;
+            // echo $e;
         }
         
     }
