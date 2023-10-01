@@ -3,7 +3,9 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Disclamer</h5>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <form action="/home/okDisclamer" method="POST" class="modal-body">
+                    <button type="submit" class="close">&times;</button>
+                </form>
             </div>
             <div class="modal-body">
 				<p>This is created just as a fun project for myself because i love coding and venomous reptiles</p>
@@ -12,9 +14,9 @@
                 <p>kind feedback is welcome</p>
 
             </div>
-            <div class="modal-body">
-                <button type="submit" data-dismiss="modal" class="btn btn-secondary">Close</button>
-            </div>
+            <form action="/home/okDisclamer" method="POST" class="modal-body">
+                <button type="submit" class="btn btn-secondary">Okey i understand</button>
+            </form>
         </div>
     </div>
 </div>

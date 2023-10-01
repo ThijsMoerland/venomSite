@@ -25,7 +25,18 @@ class AdminController{
     public function login(){
         $username = htmlspecialchars($_POST['username']);
         $password = htmlspecialchars($_POST['password']);
-        $this->adminService->login($username, $password);
+        if($this->adminService->login($username, $password)){
+            echo "<script>alert('SUCCESS FUCKERS');</script>";
+            echo "<script>window.location.replace('/admin');</script>";
+        } else {
+            echo "<script>alert('Wrong username or password');</script>";
+            echo "<script>window.location.replace('/admin/loadLoginView');</script>";
+        }
+        die();
+    }
+    public function logout(){
+        $this->adminService->logout();
+        echo "<script>window.location.replace('/');</script>";
     }
 }
 

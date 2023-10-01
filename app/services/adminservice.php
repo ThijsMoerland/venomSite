@@ -19,7 +19,7 @@ class AdminService{
     }
     public function login($username, $password){
         $admin = $this->adminRepository->getAdminUserByUsername($username);
-        $this->verifyPassword($password, $admin);
+        return $this->verifyPassword($password, $admin);
     }
 
     public function hashPassword($password){
@@ -30,14 +30,14 @@ class AdminService{
         if(password_verify($password, $admin->getHashedPassword())){
             $admin->unsetPassword();
             $_SESSION['admin'] = $admin;
-            echo "<script>alert('SUCCESS FUCKERS');</script>";
-            echo "<script>window.location.replace('/admin');</script>";
-            die();
+            return true;
         } 
         $admin->unsetPassword();
-        echo "<script>alert('Wrong username or password');</script>";
-        echo "<script>window.location.replace('/admin/loadLoginView');</script>";
-        die();
+        return false;
+    }
+
+    public function logout(){
+        unset($_SESSION['admin']);
     }
 }
 ?>
