@@ -20,14 +20,14 @@ if(isset($_SESSION['admin'])){
                         <p class="m-1">snakes that have this fang type are every snake from the elapid family</p>
                         <?php
                         if(isset($_SESSION['admin'])){ ?>
-                        <div class="border-top border-dark pt-2 d-flex justify-content-around">
+                        <div class="border-top border-dark pt-3 d-flex justify-content-around">
                             <form class="w-50 mr-2" action="/admin/editFangTypes" method="POST">
                                 <input type="hidden" name="id" value="<?= $fangType->getId();?>">
                                 <button type="submit" class="w-100 btn btn-warning" type="submit">Edit</button>
                             </form>
                             <form id="deleteFangTypeForm" class="w-50" action="/admin/deleteFangTypes" method="POST">
                                 <input type="hidden" name="id" value="<?= $fangType->getId();?>">
-                                <button id="button" type="submit" class="w-100 btn btn-danger" type="submit">Delete</button>
+                                <button onclick="return confirmDelete()" id="button" type="submit" class="w-100 btn btn-danger" type="submit">Delete</button>
                             </form>
                         </div>
                         <?php } ?>
@@ -37,9 +37,9 @@ if(isset($_SESSION['admin'])){
     <?php } ?>
 </div>
 <script>
-    document.getElementById('button').addEventListener('click',(e)=>{
-        if(!confirm('Are you sure you want to delete the fang type')){
-            e.preventDefault();
+    function confirmDelete(){
+        if(confirm('Are you sure you want to delete the fang type') == false){
+            return false;
         }
-    },false)
+    }
 </script>
