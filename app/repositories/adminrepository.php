@@ -46,6 +46,20 @@ class AdminRepository extends Repository{
             echo $e;
         }
     }
+
+    public function updateFang($id, $fangType, $fangCommonName, $description){
+        try{
+            $stmt = $this->connection->prepare("UPDATE `fangTypes` SET fangType = :fangType, fangCommonName = :fangCommonName, description = :description WHERE id = :id");
+            $stmt->bindParam(':id', $id);
+            $stmt->bindParam(':fangType', $fangType);
+            $stmt->bindParam(':fangCommonName', $fangCommonName);
+            $stmt->bindParam(':description', $description);
+            $stmt->execute();
+        }catch (PDOException $e)
+        {
+            echo $e;
+        }
+    }
 }
 
 ?>

@@ -6,28 +6,30 @@
                     <input type="hidden" value="<?=$fang->getId();?>" name="id">
                     <div class="form-group">
                         <label class="h5 text-primary" for="fangType">Scientific fang name</label>
-                        <input class="form-control" type="text" id="fangType" name="fangType" value="<?=$fang->getFangType();?>"  placeholder="<?=$fang->getFangType();?>">
+                        <input maxlength="35" class="form-control" type="text" id="fangType" name="fangType" value="<?=$fang->getFangType();?>"  placeholder="<?=$fang->getFangType();?>">
                         <small id="scientificNameWordCounter"class="form-text text-muted">Max. 35 characters</small>
                     </div>
                     
                     <div class="form-group">
                         <label class="h5 text-primary" for="fangCommonName">Common fang name / short description</label>
-                        <input class="form-control" type="text" id="fangCommonName" name="fangCommonName" value="<?=$fang->getFangCommonName();?>" placeholder="<?=$fang->getFangCommonName();?>">
+                        <input maxlength="50" class="form-control" type="text" id="fangCommonName" name="fangCommonName" value="<?=$fang->getFangCommonName();?>" placeholder="<?=$fang->getFangCommonName();?>">
                         <small id="commonNameWordCounter" class="form-text text-muted">Max. 50 characters</small>
                     </div>
 
                     <div class="form-group">
                         <label class="h5 text-primary" for="description">Description</label>
-                        <textarea class="form-control" id="description" name="description" rows="4" placeholder="<?=$fang->getDescription();?>" cols="50"><?=$fang->getDescription();?></textarea>
+                        <textarea maxlength="1000" class="form-control" id="description" name="description" rows="4" placeholder="<?=$fang->getDescription();?>" cols="50"><?=$fang->getDescription();?></textarea>
                         <small id="descriptionWordCounter" class="form-text text-muted">Max. 1000 characters</small>
                     </div>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
         </div>
     </div>
 </div>
 
-<script>
+<!-- <script>
     let scientificName = document.getElementById('fangType');
     let commonName = document.getElementById('fangCommonName');
     let description = document.getElementById('description');
@@ -67,4 +69,4 @@
             }
         });
     });
-</script>
+</script> -->

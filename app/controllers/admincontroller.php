@@ -49,6 +49,20 @@ class AdminController{
         require __DIR__ . '/../views/fang/editFang.php';
     }
 
+    public function updateFang(){
+        $this->checkIfLoggedIn();
+
+        $fangId = htmlspecialchars($_POST['id']);
+        $fangType = htmlspecialchars($_POST['fangType']);
+        $fangCommonName = htmlspecialchars($_POST['fangCommonName']);
+        $fangDescription = htmlspecialchars($_POST['description']);
+
+        $this->adminService->validateFangInput($fangId, $fangType, $fangCommonName, $fangDescription);
+
+        echo "<script>window.location.replace('/fang');</script>";
+
+    }
+
     public function deleteFangTypes(){
         $this->checkIfLoggedIn();
 
