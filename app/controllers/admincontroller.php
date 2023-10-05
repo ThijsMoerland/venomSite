@@ -45,7 +45,7 @@ class AdminController{
         $this->checkIfLoggedIn();
 
         $fangId = htmlspecialchars($_POST['id']);
-        $fang = $this->adminService->getFangById($fangId);
+        $fang = $this->adminService->getFangTypeById($fangId);
         require __DIR__ . '/../views/fang/editFang.php';
     }
 
@@ -57,10 +57,14 @@ class AdminController{
         $fangCommonName = htmlspecialchars($_POST['fangCommonName']);
         $fangDescription = htmlspecialchars($_POST['description']);
 
-        $this->adminService->validateFangInput($fangId, $fangType, $fangCommonName, $fangDescription);
 
-        echo "<script>window.location.replace('/fang');</script>";
-
+        if($this->adminService->validateFangInput($fangType, $fangCommonName, $fangDescription)){
+            $this->adminService->updateFang($fangId, $fangType, $fangCommonName, $fangDescription);
+            echo "<script>window.location.replace('/fang');</script>";
+        } else {
+            echo "<script>alert('Something went wrong');</script>";
+            echo "<script>window.location.replace('/');</script>";
+        }
     }
 
     public function deleteFangTypes(){
@@ -68,6 +72,32 @@ class AdminController{
 
         $id = htmlspecialchars($_POST['id']);
         $this->adminService->deleteFangType($id);
+    }
+
+    public function addFangTypeView(){
+        $this->checkIfLoggedIn();
+
+        require __DIR__ . '/../views/fang/addFang.php';
+    }
+
+    public function addFangType(){
+        $this->checkIfLoggedIn();
+
+        $fangType = htmlspecialchars($_POST['fangType']);
+        $fangCommonName = htmlspecialchars($_POST['fangCommonName']);
+        $description = htmlspecialchars($_POST['description']);
+
+        if($this->adminService->validateFangInput($fangType, $fangCommonName, $description)){
+            $this->adminService->addFangType($fangType, $fangCommonName, $description);
+            echo "<script>window.location.replace('/fang');</script>";
+        } else {
+            echo "<script>alert('Something went wrong');</script>";
+            echo "<script>window.location.replace('/');</script>";
+        }
+
+
+
+        echo "<script>window.location.replace('/fang');</script>";
     }
 }
 

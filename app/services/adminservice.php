@@ -43,11 +43,11 @@ class AdminService{
     public function deleteFangType($id){
         $this->adminRepository->deleteFangType($id);
     }
-    public function getFangById($id){
-        return $this->adminRepository->getFangById($id);
+    public function getFangTypeById($id){
+        return $this->adminRepository->getFangTypeById($id);
     }
 
-    public function validateFangInput($fangId, $fangType, $fangCommonName, $fangDescription){
+    public function validateFangInput($fangType, $fangCommonName, $fangDescription){
         if(strlen($fangType) > 35){
             echo "<script>alert('Scientific name is too long ".strlen($fangType)." / 35');</script>";
             echo "<script>window.location.replace('/admin/editFangTypesView');</script>";
@@ -63,11 +63,15 @@ class AdminService{
             echo "<script>window.location.replace('/admin/editFangTypesView');</script>";
             die();
         }
-        $this->updateFang($fangId, $fangType, $fangCommonName, $fangDescription);
+        return true;
     }
 
     public function updateFang($fangId, $fangType, $fangCommonName, $fangDescription){
         $this->adminRepository->updateFang($fangId, $fangType, $fangCommonName, $fangDescription);
+    }
+
+    public function addFangType($fangType, $fangCommonName, $description){
+        $this->adminRepository->addFangType($fangType, $fangCommonName, $description);
     }
 }
 ?>

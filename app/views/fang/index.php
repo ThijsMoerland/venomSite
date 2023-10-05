@@ -1,10 +1,22 @@
 <?php 
 
-if(isset($_SESSION['admin'])){
-    $adminUser = $_SESSION['admin'];
-}
+if(isset($_SESSION['admin'])){ ?>
 
-?>
+<div class="row">
+    <div class="col-12 px-2">
+        <div class="card">
+            <div class="card-body">
+                <form class="w-100 mr-2 mb-0" action="/admin/addFangTypeView" method="POST">
+                    <button type="submit" class="w-100 btn btn-primary" type="submit">Add fang type</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<?php } ?>
+
+
 <div class="row">
     <?php
     foreach ($fangTypes as $fangType) { ?>
