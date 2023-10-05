@@ -42,12 +42,16 @@ class AdminController{
     }
 
     public function editFangTypesView(){
+        $this->checkIfLoggedIn();
+
         $fangId = htmlspecialchars($_POST['id']);
         $fang = $this->adminService->getFangById($fangId);
         require __DIR__ . '/../views/fang/editFang.php';
     }
 
     public function deleteFangTypes(){
+        $this->checkIfLoggedIn();
+
         $id = htmlspecialchars($_POST['id']);
         $this->adminService->deleteFangType($id);
     }

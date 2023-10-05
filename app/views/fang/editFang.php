@@ -3,6 +3,7 @@
         <div class="card">
             <div class="card-body">
                 <form action="/admin/updateFang" method="POST" class="form">
+                    <input type="hidden" value="<?=$fang->getId();?>" name="id">
                     <div class="form-group">
                         <label class="h5 text-primary" for="fangType">Scientific fang name</label>
                         <input class="form-control" type="text" id="fangType" name="fangType" value="<?=$fang->getFangType();?>"  placeholder="<?=$fang->getFangType();?>">
@@ -17,7 +18,7 @@
 
                     <div class="form-group">
                         <label class="h5 text-primary" for="description">Description</label>
-                        <textarea class="form-control" id="description" name="description" rows="4" value="<?=$fang->getDescription();?>" cols="50"><?=$fang->getDescription();?></textarea>
+                        <textarea class="form-control" id="description" name="description" rows="4" placeholder="<?=$fang->getDescription();?>" cols="50"><?=$fang->getDescription();?></textarea>
                         <small id="descriptionWordCounter" class="form-text text-muted">Max. 1000 characters</small>
                     </div>
                 </form>
