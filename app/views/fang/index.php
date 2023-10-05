@@ -21,7 +21,7 @@ if(isset($_SESSION['admin'])){
                         <?php
                         if(isset($_SESSION['admin'])){ ?>
                         <div class="border-top border-dark pt-3 d-flex justify-content-around">
-                            <form class="w-50 mr-2" action="/admin/editFangTypes" method="POST">
+                            <form class="w-50 mr-2" action="/admin/editFangTypesView" method="POST">
                                 <input type="hidden" name="id" value="<?= $fangType->getId();?>">
                                 <button type="submit" class="w-100 btn btn-warning" type="submit">Edit</button>
                             </form>

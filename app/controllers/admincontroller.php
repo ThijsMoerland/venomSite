@@ -42,8 +42,9 @@ class AdminController{
     }
 
     public function editFangTypesView(){
-        $fangTypes = $this->fangService->getAllFangTypes();
-        require __DIR__ . '/../views/admin/editFangTypes/allFangTypes.php';
+        $fangId = htmlspecialchars($_POST['id']);
+        $fang = $this->adminService->getFangById($fangId);
+        require __DIR__ . '/../views/fang/editFang.php';
     }
 
     public function deleteFangTypes(){

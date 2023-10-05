@@ -43,5 +43,8 @@ class AdminService{
     public function deleteFangType($id){
         $this->adminRepository->deleteFangType($id);
     }
+    public function getFangById($id){
+        return $this->adminRepository->getFangById($id);
+    }
 }
 ?>
