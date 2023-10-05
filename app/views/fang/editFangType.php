@@ -6,7 +6,7 @@
                     <input type="hidden" value="<?=$fang->getId();?>" name="id">
                     <div class="form-group">
                         <label class="h5 text-primary" for="fangType">Scientific fang name</label>
-                        <input maxlength="35" class="form-control" type="text" id="fangType" name="fangType" value="<?=$fang->getFangType();?>"  placeholder="<?=$fang->getFangType();?>">
+                        <input maxlength="35" required class="form-control" type="text" id="fangType" name="fangType" value="<?=$fang->getFangType();?>"  placeholder="<?=$fang->getFangType();?>">
                         <small id="scientificNameWordCounter"class="form-text text-muted">Max. 35 characters</small>
                     </div>
                     

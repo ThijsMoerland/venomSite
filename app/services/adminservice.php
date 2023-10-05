@@ -48,19 +48,24 @@ class AdminService{
     }
 
     public function validateFangInput($fangType, $fangCommonName, $fangDescription){
+        if(strlen($fangType) < 1 || $fangType == null || $fangType == "" || $fangType == " "){
+            echo "<script>alert('Scientific name cannot be empty');</script>";
+            echo "<script>window.location.replace('/fang');</script>";
+            die();
+        }
         if(strlen($fangType) > 35){
             echo "<script>alert('Scientific name is too long ".strlen($fangType)." / 35');</script>";
-            echo "<script>window.location.replace('/admin/editFangTypesView');</script>";
+            echo "<script>window.location.replace('/fang');</script>";
             die();
         }
         if(strlen($fangCommonName) > 50){
             echo "<script>alert('Common name is too long ".strlen($fangCommonName)." / 50');</script>";
-            echo "<script>window.location.replace('/admin/editFangTypesView');</script>";
+            echo "<script>window.location.replace('/fang');</script>";
             die();
         }
         if(strlen($fangDescription) > 1000){
             echo "<script>alert('Description is too long ".strlen($fangDescription)." / 1000');</script>";
-            echo "<script>window.location.replace('/admin/editFangTypesView');</script>";
+            echo "<script>window.location.replace('/fang');</script>";
             die();
         }
         return true;

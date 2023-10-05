@@ -1,3 +1,21 @@
+<?php 
+
+if(isset($_SESSION['admin'])){ ?>
+
+<div class="row">
+    <div class="col-12 p-2">
+        <div class="card">
+            <div class="card-body">
+                <form class="w-100 mr-2 mb-0" action="/adminvenom/addVenomTypeView" method="POST">
+                    <button type="submit" class="w-100 btn btn-primary" type="submit">Add Venom type</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<?php } ?>
+
 <div class="row">
     <?php
     foreach ($venomTypes as $venomType) { ?>
@@ -11,6 +29,19 @@
                             <p><?= $venomType->getEffect() ? $venomType->getEffect() : "Venom effect not set";?></p>
                         </div>
                         <p><?= $venomType->getFoundInSpecies() ? $venomType->getFoundnSpecies() : "Species that might have this venom unset";?></p>
+                        <?php
+                        if(isset($_SESSION['admin'])){ ?>
+                        <div class="border-top border-dark pt-3 d-flex justify-content-around">
+                            <form class="w-50 mr-2" action="/admin/editVenomTypesView" method="POST">
+                                <input type="hidden" name="id" value="">
+                                <button type="submit" class="w-100 btn btn-warning" type="submit">Edit</button>
+                            </form>
+                            <form id="deleteFangTypeForm" class="w-50" action="/admin/deleteVenomTypes" method="POST">
+                                <input type="hidden" name="id" value="">
+                                <button onclick="return confirmDelete()" id="button" type="submit" class="w-100 btn btn-danger" type="submit">Delete</button>
+                            </form>
+                        </div>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
