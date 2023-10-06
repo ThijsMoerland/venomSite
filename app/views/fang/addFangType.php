@@ -2,7 +2,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <form action="/admin/addFangType" method="POST" class="form">
+                <form action="/adminfang/addFangType" method="POST" class="form">
                     <div class="form-group">
                         <label class="h5 text-primary" for="fangType">Scientific fang name</label>
                         <input maxlength="35" required class="form-control" type="text" id="fangType" name="fangType"  placeholder="Enter scientific name">

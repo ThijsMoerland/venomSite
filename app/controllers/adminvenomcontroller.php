@@ -1,11 +1,14 @@
 <?php 
+require_once __DIR__ . '/../services/adminvenomservice.php';
 require_once __DIR__ . '/../services/adminservice.php';
 
 class AdminvenomController{
     
     private $adminService;
+    private $adminVenomService;
     function __construct(){
         $this->adminService = new AdminService();
+        $this->adminVenomService = new AdminvenomService();
     }
     public function checkIfLoggedIn(){
         $admin = $this->adminService->checkIfLoggedIn();
@@ -14,31 +17,31 @@ class AdminvenomController{
             die();
         }
     }
-    // public function editVenomTypesView(){
-    //     $this->checkIfLoggedIn();
+    public function editVenomTypesView(){
+        $this->checkIfLoggedIn();
 
-    //     $fangId = htmlspecialchars($_POST['id']);
-    //     $fang = $this->adminService->getFangTypeById($fangId);
-    //     require __DIR__ . '/../views/venom/editVenom.php';
-    // }
+        $venomId = htmlspecialchars($_POST['id']);
+        $venom = $this->adminVenomService->getVenomTypeById($venomId);
+        require __DIR__ . '/../views/venom/editVenomType.php';
+    }
 
-    // public function updateVenom(){
-    //     $this->checkIfLoggedIn();
+    public function updateVenomType(){
+        $this->checkIfLoggedIn();
 
-    //     $fangId = htmlspecialchars($_POST['id']);
-    //     $fangType = htmlspecialchars($_POST['fangType']);
-    //     $fangCommonName = htmlspecialchars($_POST['fangCommonName']);
-    //     $fangDescription = htmlspecialchars($_POST['description']);
+        $venomId = htmlspecialchars($_POST['id']);
+        $venomType = htmlspecialchars($_POST['venomType']);
+        $description = htmlspecialchars($_POST['description']);
+        $effect = htmlspecialchars($_POST['effect']);
 
 
-    //     if($this->adminService->validateFangInput($fangType, $fangCommonName, $fangDescription)){
-    //         $this->adminService->updateFang($fangId, $fangType, $fangCommonName, $fangDescription);
-    //         echo "<script>window.location.replace('/fang');</script>";
-    //     } else {
-    //         echo "<script>alert('Something went wrong');</script>";
-    //         echo "<script>window.location.replace('/');</script>";
-    //     }
-    // }
+        if($this->adminVenomService->validateVenomInput($venomType, $effect, $description)){
+            $this->adminVenomService->updateVenomType($venomId, $venomType, $effect, $description);
+            echo "<script>window.location.replace('/venom');</script>";
+        } else {
+            echo "<script>alert('Something went wrong');</script>";
+            echo "<script>window.location.replace('/');</script>";
+        }
+    }
 
     // public function deleteFangTypes(){
     //     $this->checkIfLoggedIn();
@@ -54,25 +57,21 @@ class AdminvenomController{
         require __DIR__ . '/../views/venom/addVenomType.php';
     }
 
-    // public function addFangType(){
-    //     $this->checkIfLoggedIn();
+    public function addVenomType(){
+        $this->checkIfLoggedIn();
 
-    //     $fangType = htmlspecialchars($_POST['fangType']);
-    //     $fangCommonName = htmlspecialchars($_POST['fangCommonName']);
-    //     $description = htmlspecialchars($_POST['description']);
+        $venomType = htmlspecialchars($_POST['venomType']);
+        $effect = htmlspecialchars($_POST['effect']);
+        $description = htmlspecialchars($_POST['description']);
 
-    //     if($this->adminService->validateFangInput($fangType, $fangCommonName, $description)){
-    //         $this->adminService->addFangType($fangType, $fangCommonName, $description);
-    //         echo "<script>window.location.replace('/fang');</script>";
-    //     } else {
-    //         echo "<script>alert('Something went wrong');</script>";
-    //         echo "<script>window.location.replace('/');</script>";
-    //     }
-
-
-
-    //     echo "<script>window.location.replace('/fang');</script>";
-    // }
+        if($this->adminVenomService->validateVenomInput($venomType, $effect, $description)){
+            $this->adminVenomService->addVenomType($venomType, $effect, $description);
+            echo "<script>window.location.replace('/venom');</script>";
+        } else {
+            echo "<script>alert('Something went wrong');</script>";
+            echo "<script>window.location.replace('/');</script>";
+        }
+    }
 }
 
 

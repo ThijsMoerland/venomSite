@@ -32,12 +32,12 @@ if(isset($_SESSION['admin'])){ ?>
                         <?php
                         if(isset($_SESSION['admin'])){ ?>
                         <div class="border-top border-dark pt-3 d-flex justify-content-around">
-                            <form class="w-50 mr-2" action="/admin/editVenomTypesView" method="POST">
-                                <input type="hidden" name="id" value="">
+                            <form class="w-50 mr-2" action="/adminvenom/editVenomTypesView" method="POST">
+                                <input type="hidden" name="id" value="<?=$venomType->getId();?>">
                                 <button type="submit" class="w-100 btn btn-warning" type="submit">Edit</button>
                             </form>
-                            <form id="deleteFangTypeForm" class="w-50" action="/admin/deleteVenomTypes" method="POST">
-                                <input type="hidden" name="id" value="">
+                            <form id="deleteFangTypeForm" class="w-50" action="/adminvenom/deleteVenomTypes" method="POST">
+                                <input type="hidden" name="id" value="<?=$venomType->getId();?>">
                                 <button onclick="return confirmDelete()" id="button" type="submit" class="w-100 btn btn-danger" type="submit">Delete</button>
                             </form>
                         </div>

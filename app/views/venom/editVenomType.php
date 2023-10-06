@@ -2,24 +2,24 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <form action="/adminfang/updateFang" method="POST" class="form">
-                    <input type="hidden" value="<?=$fang->getId();?>" name="id">
+                <form action="/adminvenom/updateVenomType" method="POST" class="form">
+                    <input type="hidden" value="<?=$venom->getId();?>" name="id">
                     <div class="form-group">
-                        <label class="h5 text-primary" for="fangType">Scientific fang name</label>
-                        <input maxlength="35" required class="form-control" type="text" id="fangType" name="fangType" value="<?=$fang->getFangType();?>"  placeholder="<?=$fang->getFangType();?>">
-                        <small id="scientificNameWordCounter"class="form-text text-muted">Max. 35 characters</small>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="h5 text-primary" for="fangCommonName">Common fang name / short description</label>
-                        <input maxlength="50" class="form-control" type="text" id="fangCommonName" name="fangCommonName" value="<?=$fang->getFangCommonName();?>" placeholder="<?=$fang->getFangCommonName();?>">
-                        <small id="commonNameWordCounter" class="form-text text-muted">Max. 50 characters</small>
+                        <label class="h5 text-primary" for="venomType">Scientific venom name</label>
+                        <input maxlength="100" required class="form-control" type="text" id="venomType" name="venomType" value="<?=$venom->getVenomType();?>"  placeholder="<?=$venom->getVenomType();?>">
+                        <small id="scientificNameWordCounter"class="form-text text-muted">Max. 100 characters</small>
                     </div>
 
                     <div class="form-group">
                         <label class="h5 text-primary" for="description">Description</label>
-                        <textarea maxlength="1000" class="form-control" id="description" name="description" rows="4" placeholder="<?=$fang->getDescription();?>" cols="50"><?=$fang->getDescription();?></textarea>
-                        <small id="descriptionWordCounter" class="form-text text-muted">Max. 1000 characters</small>
+                        <textarea maxlength="2000" class="form-control" id="description" name="description" rows="4" placeholder="<?=$venom->getDescription();?>" cols="50"><?=$venom->getDescription();?></textarea>
+                        <small id="descriptionWordCounter" class="form-text text-muted">Max. 2000 characters</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="h5 text-primary" for="effect">Venom Effect</label>
+                        <textarea maxlength="2000" class="form-control" id="effect" name="effect" rows="4" placeholder="<?=$venom->getEffect();?>" cols="50"><?=$venom->getEffect();?></textarea>
+                        <small id="descriptionWordCounter" class="form-text text-muted">Max. 2000 characters</small>
                     </div>
 
                     <button type="submit" class="btn btn-primary">Submit</button>
@@ -30,7 +30,7 @@
 </div>
 
 <!-- <script>
-    let scientificName = document.getElementById('fangType');
+    let scientificName = document.getElementById('venomType');
     let commonName = document.getElementById('fangCommonName');
     let description = document.getElementById('description');
 

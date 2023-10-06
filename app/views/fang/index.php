@@ -6,7 +6,7 @@ if(isset($_SESSION['admin'])){ ?>
     <div class="col-12 p-2">
         <div class="card">
             <div class="card-body">
-                <form class="w-100 mr-2 mb-0" action="/admin/addFangTypeView" method="POST">
+                <form class="w-100 mr-2 mb-0" action="/adminfang/addFangTypeView" method="POST">
                     <button type="submit" class="w-100 btn btn-primary" type="submit">Add fang type</button>
                 </form>
             </div>

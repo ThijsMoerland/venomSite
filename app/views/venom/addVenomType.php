@@ -16,8 +16,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="h5 text-primary" for="description">Venom effect</label>
-                        <textarea maxlength="2000" class="form-control" id="description" name="description" rows="4" placeholder="Enter full description" cols="50"></textarea>
+                        <label class="h5 text-primary" for="effect">Venom effect</label>
+                        <textarea maxlength="2000" class="form-control" id="effect" name="effect" rows="4" placeholder="Enter full description of the general effect of the venom" cols="50"></textarea>
                         <small class="form-text text-muted">Max. 2000 characters</small>
                     </div>
                     

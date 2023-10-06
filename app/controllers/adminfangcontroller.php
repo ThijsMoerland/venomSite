@@ -1,11 +1,14 @@
 <?php 
+require_once __DIR__ . '/../services/adminfangservice.php';
 require_once __DIR__ . '/../services/adminservice.php';
 
 class AdminfangController{
     
+    private $adminFangService;
     private $adminService;
     function __construct(){
         $this->adminService = new AdminService();
+        $this->adminFangService = new AdminfangService();
     }
     public function checkIfLoggedIn(){
         $admin = $this->adminService->checkIfLoggedIn();
@@ -18,7 +21,7 @@ class AdminfangController{
         $this->checkIfLoggedIn();
 
         $fangId = htmlspecialchars($_POST['id']);
-        $fang = $this->adminService->getFangTypeById($fangId);
+        $fang = $this->adminFangService->getFangTypeById($fangId);
         require __DIR__ . '/../views/fang/editFangType.php';
     }
 
@@ -31,8 +34,8 @@ class AdminfangController{
         $fangDescription = htmlspecialchars($_POST['description']);
 
 
-        if($this->adminService->validateFangInput($fangType, $fangCommonName, $fangDescription)){
-            $this->adminService->updateFang($fangId, $fangType, $fangCommonName, $fangDescription);
+        if($this->adminFangService->validateFangInput($fangType, $fangCommonName, $fangDescription)){
+            $this->adminFangService->updateFang($fangId, $fangType, $fangCommonName, $fangDescription);
             echo "<script>window.location.replace('/fang');</script>";
         } else {
             echo "<script>alert('Something went wrong');</script>";
@@ -44,7 +47,7 @@ class AdminfangController{
         $this->checkIfLoggedIn();
 
         $id = htmlspecialchars($_POST['id']);
-        $this->adminService->deleteFangType($id);
+        $this->adminFangService->deleteFangType($id);
         echo "<script>window.location.replace('/fang');</script>";
     }
 
@@ -61,8 +64,8 @@ class AdminfangController{
         $fangCommonName = htmlspecialchars($_POST['fangCommonName']);
         $description = htmlspecialchars($_POST['description']);
 
-        if($this->adminService->validateFangInput($fangType, $fangCommonName, $description)){
-            $this->adminService->addFangType($fangType, $fangCommonName, $description);
+        if($this->adminFangService->validateFangInput($fangType, $fangCommonName, $description)){
+            $this->adminFangService->addFangType($fangType, $fangCommonName, $description);
             echo "<script>window.location.replace('/fang');</script>";
         } else {
             echo "<script>alert('Something went wrong');</script>";
