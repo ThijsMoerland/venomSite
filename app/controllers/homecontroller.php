@@ -11,11 +11,11 @@ class HomeController{
         if($this->homeService->checkIfDisclamerRead() == false){
             echo "<script>window.location.replace('/home/disclamer');</script>";
         }
-        require __DIR__ . '/../views/home/homepage.php';
+        require_once __DIR__ . '/../views/home/homepage.php';
     }
 
     public function disclamer(){
-        require __DIR__ . '/../views/home/disclamer.php';
+        require_once __DIR__ . '/../views/home/disclamer.php';
     }
 
     public function okDisclamer(){

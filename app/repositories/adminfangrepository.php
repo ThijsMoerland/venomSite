@@ -3,7 +3,7 @@
 require_once __DIR__ . '/repository.php';
 require_once __DIR__ . '/../models/fangType.php';
 
-class AdminfangRepository extends repository{
+class AdminfangRepository extends Repository{
 
     public function deleteFangType($id){
         try{

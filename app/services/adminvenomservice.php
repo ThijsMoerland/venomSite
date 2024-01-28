@@ -44,6 +44,10 @@ class AdminvenomService{
     public function updateVenomType($id, $venomType, $effect, $description){
         $this->adminVenomRepository->updateVenomType($id, $venomType, $effect, $description);
     }
+
+    public function deleteVenomType($id){
+        $this->adminVenomRepository->deleteVenomType($id);
+    }
     
 }
 

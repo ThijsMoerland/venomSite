@@ -5,27 +5,6 @@ require_once __DIR__ . '/../models/fangType.php';
 
 
 class FangRepository extends Repository {
-    // public function addAnimal($scientificName, $commonName, $temperature, $animalType, $venomousPoisonous, $consumtion, $description){
-    //     try {
-    //         $stmt = $this->connection->prepare("INSERT INTO animals
-    //         (`scientificName`,`commonName`,`temperature`,`animalType`,`consumerType`,`description`,`venomousPoisonous`) 
-    //         VALUES (:scientificName, :commonName, :temperature, :animalType, :consumerType, :description, :venomousPoisonous)");
-    //         $stmt->bindParam(':scientificName', $scientificName);
-    //         $stmt->bindParam(':commonName', $commonName);
-    //         $stmt->bindParam(':temperature', $temperature);
-    //         $stmt->bindParam(':animalType', $animalType);
-    //         $stmt->bindParam(':venomousPoisonous', $venomousPoisonous);
-    //         $stmt->bindParam(':consumerType', $consumtion);
-    //         $stmt->bindParam(':description', $description);
-    //         $stmt->execute();
-            
-    //         return true;
-
-    //     } catch (PDOException $e)
-    //     {
-    //         echo $e;
-    //     }
-    // }
 
     public function getAllFangTypes(){
         try{

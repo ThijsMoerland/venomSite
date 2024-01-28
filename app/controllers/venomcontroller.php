@@ -12,7 +12,7 @@ class VenomController{
 
     public function index(){
         $venomTypes = $this->venomService->getAllVenomTypes();
-        require __DIR__ . '/../views/venom/index.php';
+        require_once __DIR__ . '/../views/venom/index.php';
     }
 }
 

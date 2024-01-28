@@ -10,7 +10,7 @@ class FangController{
     }
     public function index(){
         $fangTypes = $this->fangService->getAllFangTypes();
-        require __DIR__ . '/../views/fang/index.php';
+        require_once __DIR__ . '/../views/fang/index.php';
     }
     
 }

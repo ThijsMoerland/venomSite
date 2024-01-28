@@ -1,12 +1,12 @@
 <?php
 
-require_once __DIR__ . '/../repositories/adminFangrepository.php';
+require_once __DIR__ . '/../repositories/adminfangrepository.php';
 
 class AdminfangService{
     private $adminFangRepository;
 
     public function __construct(){
-        $this->adminFangRepository = new AdminFangRepository();
+        $this->adminFangRepository = new AdminfangRepository();
     }
 
     public function deleteFangType($id){

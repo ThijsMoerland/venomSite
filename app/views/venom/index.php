@@ -19,7 +19,7 @@ if(isset($_SESSION['admin'])){ ?>
 <div class="row">
     <?php
     foreach ($venomTypes as $venomType) { ?>
-        <div class="col-sm-12 col-md-3 p-2 d-flex align-items-stretch">
+        <div class="col-sm-12 col-md-6 col-lg-3 p-2 d-flex align-items-stretch">
                 <div class="card">
                     <div class="card-body d-flex justify-content-between flex-column">
                         <div class="border-bottom border-dark">
@@ -28,7 +28,7 @@ if(isset($_SESSION['admin'])){ ?>
                             <p><?= $venomType->getDescription() ? $venomType->getDescription() : "Venom desciption not set";?></p>
                             <p><?= $venomType->getEffect() ? $venomType->getEffect() : "Venom effect not set";?></p>
                         </div>
-                        <p><?= $venomType->getFoundInSpecies() ? $venomType->getFoundnSpecies() : "Species that might have this venom unset";?></p>
+                        <p class="my-1">Snakes that have this venom type are every snake from the dendroaspis genus</p>
                         <?php
                         if(isset($_SESSION['admin'])){ ?>
                         <div class="border-top border-dark pt-3 d-flex justify-content-around">
@@ -36,7 +36,7 @@ if(isset($_SESSION['admin'])){ ?>
                                 <input type="hidden" name="id" value="<?=$venomType->getId();?>">
                                 <button type="submit" class="w-100 btn btn-warning" type="submit">Edit</button>
                             </form>
-                            <form id="deleteFangTypeForm" class="w-50" action="/adminvenom/deleteVenomTypes" method="POST">
+                            <form id="deleteFangTypeForm" class="w-50" action="/adminvenom/deleteVenomType" method="POST">
                                 <input type="hidden" name="id" value="<?=$venomType->getId();?>">
                                 <button onclick="return confirmDelete()" id="button" type="submit" class="w-100 btn btn-danger" type="submit">Delete</button>
                             </form>
@@ -47,3 +47,10 @@ if(isset($_SESSION['admin'])){ ?>
             </div>
     <?php } ?>
 </div>
+<script>
+    function confirmDelete(){
+        if(confirm('Are you sure you want to delete this venom type') == false){
+            return false;
+        }
+    }
+</script>

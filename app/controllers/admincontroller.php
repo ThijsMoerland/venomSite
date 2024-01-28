@@ -12,7 +12,7 @@ class AdminController{
     public function index(){
         $this->checkIfLoggedIn();
         $admin = $this->adminService->checkIfLoggedIn();
-        // require __DIR__ . '/../views/admin/index.php';
+        // require_once __DIR__ . '/../views/admin/index.php';
     }
     public function checkIfLoggedIn(){
         $admin = $this->adminService->checkIfLoggedIn();
@@ -22,7 +22,7 @@ class AdminController{
         }
     }
     public function loadLoginView(){
-        require __DIR__ . '/../views/admin/login.php';
+        require_once __DIR__ . '/../views/admin/login.php';
     }
     public function login(){
         $username = htmlspecialchars($_POST['username']);

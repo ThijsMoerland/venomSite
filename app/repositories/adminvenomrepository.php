@@ -47,6 +47,17 @@ class AdminvenomRepository extends Repository{
             echo "<script>alert('Something went wrong');</script>";
         }
     }
+
+    public function deleteVenomType($id){
+        try{
+            $stmt = $this->connection->prepare("DELETE FROM `venomTypes` WHERE id = :id");
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+        }catch (PDOException $e)
+        {
+            // echo $e;
+        }
+    }
     
 }
 

@@ -31,6 +31,15 @@
                 <a class="nav-link text-secondary" href="/venom">Venom types</a>
             </li>
             <li class="nav-item">
+              <a href="/class" class="nav-link text-secondary">Animal classes</a>
+            </li>
+            <li class="nav-item">
+              <a href="/order" class="nav-link text-secondary">Animal orders</a>
+            </li>
+            <li class="nav-item">
+              <a href="/suborder" class="nav-link text-secondary">Animal sub orders</a>
+            </li>
+            <li class="nav-item">
               <?php 
               if(isset( $_SESSION['admin'])) { ?>
                 <a class="nav-link text-secondary" href="/admin/logout">Log out</a>

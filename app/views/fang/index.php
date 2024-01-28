@@ -27,8 +27,8 @@ if(isset($_SESSION['admin'])){ ?>
                             <h2 class="card-title" id="fangType"><?= $fangType->getFangType();?></h2>
                             <!-- <img class="card-img-top" src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.australiangeographic.com.au%2Ffact-file%2Fcoastal-taipan%2F&psig=AOvVaw2ez-__jHJ3A0UHu52QH0Fm&ust=1696197913875000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCLjE_eOr04EDFQAAAAAdAAAAABAJ" alt="Card image cap"> -->
                             <p><b><?= $fangType->getFangCommonName() ? $fangType->getFangCommonName() : "Common Name not found in database"?></b></p>
-                            <p><?= $fangType->getDescription() ? $fangType->getDescription() : "Description not found in database"?></p>
                         </div>
+                        <p><?= $fangType->getDescription() ? $fangType->getDescription() : "Description not found in database"?></p>
                         <p class="m-1">snakes that have this fang type are every snake from the elapid family</p>
                         <?php
                         if(isset($_SESSION['admin'])){ ?>
@@ -37,7 +37,7 @@ if(isset($_SESSION['admin'])){ ?>
                                 <input type="hidden" name="id" value="<?= $fangType->getId();?>">
                                 <button type="submit" class="w-100 btn btn-warning" type="submit">Edit</button>
                             </form>
-                            <form id="deleteFangTypeForm" class="w-50" action="/adminfang/deleteFangTypes" method="POST">
+                            <form id="deleteFangTypeForm" class="w-50" action="/adminfang/deleteFangType" method="POST">
                                 <input type="hidden" name="id" value="<?= $fangType->getId();?>">
                                 <button onclick="return confirmDelete()" id="button" type="submit" class="w-100 btn btn-danger" type="submit">Delete</button>
                             </form>

@@ -22,7 +22,7 @@ class AdminfangController{
 
         $fangId = htmlspecialchars($_POST['id']);
         $fang = $this->adminFangService->getFangTypeById($fangId);
-        require __DIR__ . '/../views/fang/editFangType.php';
+        require_once __DIR__ . '/../views/fang/editFangType.php';
     }
 
     public function updateFang(){
@@ -43,7 +43,7 @@ class AdminfangController{
         }
     }
 
-    public function deleteFangTypes(){
+    public function deleteFangType(){
         $this->checkIfLoggedIn();
 
         $id = htmlspecialchars($_POST['id']);
@@ -54,7 +54,7 @@ class AdminfangController{
     public function addFangTypeView(){
         $this->checkIfLoggedIn();
 
-        require __DIR__ . '/../views/fang/addFangType.php';
+        require_once __DIR__ . '/../views/fang/addFangType.php';
     }
 
     public function addFangType(){

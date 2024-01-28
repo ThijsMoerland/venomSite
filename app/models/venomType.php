@@ -5,7 +5,7 @@ class VenomType{
     private $venomType;
     private $description;
     private $effect;
-    private $foundInSpecies;
+    // private $foundInSpecies;
 
     //getters
     public function getId(){
@@ -20,9 +20,9 @@ class VenomType{
     public function getEffect(){
         return $this->effect;
     }
-    public function getFoundInSpecies(){
-        return $this->foundInSpecies;
-    }
+    // public function getFoundInSpecies(){
+    //     return $this->foundInSpecies;
+    // }
 }
 
 ?>

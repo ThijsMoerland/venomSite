@@ -22,7 +22,7 @@ class AdminvenomController{
 
         $venomId = htmlspecialchars($_POST['id']);
         $venom = $this->adminVenomService->getVenomTypeById($venomId);
-        require __DIR__ . '/../views/venom/editVenomType.php';
+        require_once __DIR__ . '/../views/venom/editVenomType.php';
     }
 
     public function updateVenomType(){
@@ -43,18 +43,18 @@ class AdminvenomController{
         }
     }
 
-    // public function deleteFangTypes(){
-    //     $this->checkIfLoggedIn();
+    public function deleteVenomType(){
+        $this->checkIfLoggedIn();
 
-    //     $id = htmlspecialchars($_POST['id']);
-    //     $this->adminService->deleteFangType($id);
-    //     echo "<script>window.location.replace('/fang');</script>";
-    // }
+        $id = htmlspecialchars($_POST['id']);
+        $this->adminVenomService->deleteVenomType($id);
+        echo "<script>window.location.replace('/venom');</script>";
+    }
 
     public function addVenomTypeView(){
         $this->checkIfLoggedIn();
 
-        require __DIR__ . '/../views/venom/addVenomType.php';
+        require_once __DIR__ . '/../views/venom/addVenomType.php';
     }
 
     public function addVenomType(){
